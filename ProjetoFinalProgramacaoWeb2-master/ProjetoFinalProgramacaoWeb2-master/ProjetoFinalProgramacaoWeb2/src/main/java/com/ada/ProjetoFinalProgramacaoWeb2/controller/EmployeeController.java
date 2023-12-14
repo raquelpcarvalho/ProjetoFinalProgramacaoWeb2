@@ -45,7 +45,7 @@ public class EmployeeController {
         return  ResponseEntity.ok(employeeService.updateEmployee(id, employeeRequest, user));
     }
 
-    // consulta por salário e filtro por valor mínimo
+
     @RequestMapping("/searchBySalary")
     public ResponseEntity<List<EmployeeResponse>> searchEmployeesBySalary(
             @RequestParam(name = "minSalary", required = false) BigDecimal minSalary

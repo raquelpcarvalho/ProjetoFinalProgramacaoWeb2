@@ -8,12 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface UserRepository extends JpaRepository<User, Integer> { //<Tipo do dado, Tipo do Identificador (id)
+public interface UserRepository extends JpaRepository<User, Integer> {
     @Override
     @Query(value = "SELECT * FROM USERS WHERE ACTIVE = TRUE", nativeQuery = true)
     Page<User> findAll (Pageable pageable);
-
-    //query método
 
     User findByEmail(String email);
 

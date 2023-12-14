@@ -53,7 +53,7 @@ public class EmployeeService {
         Employee employee = EmployeeConvert.toEntity(employeeRequest, user);
         employee.setActive(true);
         employee.setMatricula(id);
-        return EmployeeConvert.toResponse(employeeRepository.save(employee)); //se o id já existe, é atualizado inteiro
+        return EmployeeConvert.toResponse(employeeRepository.save(employee));
     }
 
     public List<EmployeeResponse> searchEmployeesByMinSalary(BigDecimal minSalary) {

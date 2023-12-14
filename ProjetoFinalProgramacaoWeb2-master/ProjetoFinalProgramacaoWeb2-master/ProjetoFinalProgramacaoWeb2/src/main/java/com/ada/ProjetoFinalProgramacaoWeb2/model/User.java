@@ -23,14 +23,14 @@ import java.util.List;
 @Where(clause = "active is true")
 public class User implements UserDetails {
 
-    @Id// informando para o JPA qual será o identificador único da tabela
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//gera o id; IDENTITY -> auto incremento
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "email", nullable = false, unique = true)//nullable false = não aceita nulo
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "password", nullable = false)

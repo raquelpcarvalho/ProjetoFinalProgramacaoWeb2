@@ -18,8 +18,8 @@ import java.util.List;
 import java.util.Optional;
 
 
-@Service//transforma essa classe num bean gerenciado pelo spring
-public class UserService { //para salvar o usuário no banco de dados:
+@Service
+public class UserService {
 
     @Autowired
     UserRepository userRepository;
@@ -28,7 +28,7 @@ public class UserService { //para salvar o usuário no banco de dados:
     PasswordEncoder passwordEncoder;
 
     public Page<UserResponse> getUsers(int page, int size, String direction){
-        PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.fromString(direction), "name");//página, quantidade de registros e ordenacao
+        PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.fromString(direction), "name");
         Page<User> users = userRepository.findAll(pageRequest);
         return UserConvert.toResponsePage(users);
 
@@ -75,10 +75,9 @@ public class UserService { //para salvar o usuário no banco de dados:
         User user = UserConvert.toEntity(userRequest);
         user.setActive(true);
         user.setId(id);
-        return UserConvert.toResponse(userRepository.save(user)); //se o id já existe, é atualizado inteiro
+        return UserConvert.toResponse(userRepository.save(user));
     }
 
-    //Pesquisa de Usuário por CPF
     public UserResponse getUserByCpf(String userCpf){
         return UserConvert.toResponse(userRepository.findUserByCpf(userCpf));
     }

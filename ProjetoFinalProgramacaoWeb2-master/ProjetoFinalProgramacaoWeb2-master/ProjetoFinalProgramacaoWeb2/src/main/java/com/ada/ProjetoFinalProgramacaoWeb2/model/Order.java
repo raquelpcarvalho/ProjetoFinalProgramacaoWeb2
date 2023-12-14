@@ -17,8 +17,6 @@ public class Order {
 
     private BigDecimal totalPrice;
 
-    //pode ter muitos pedidos de 1 usuário(user)
-
     @ManyToOne
     private User user;
 
