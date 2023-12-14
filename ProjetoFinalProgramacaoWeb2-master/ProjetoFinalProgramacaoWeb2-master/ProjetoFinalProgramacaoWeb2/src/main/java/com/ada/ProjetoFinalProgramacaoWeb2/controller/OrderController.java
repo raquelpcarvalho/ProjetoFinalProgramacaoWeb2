@@ -20,16 +20,12 @@ public class OrderController {
     OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<OrderResponse> saveOrder(@RequestBody OrderRequest orderRequest){//@RequestBody informa que os dados virão do "body" da requisição
+    public ResponseEntity<OrderResponse> saveOrder(@RequestBody OrderRequest orderRequest){
         OrderResponse orderResponse = orderService.saveOrder(orderRequest);
         return ResponseEntity.created(URI.create("/order/" + orderResponse.getId())).body(orderResponse);
     }
 
-//    @GetMapping("/order/user/{userId}")
-//    public List<OrderResponse> getAllByUser(@PathVariable Integer userId){
-//        return orderService.getAllByUser(userId);
-//    }
-//
+
     @GetMapping("/order/product/{productId}")
     public List<OrderResponse> getAllByProduct(@PathVariable Integer productId){
         return orderService.getAllByProduct(productId);

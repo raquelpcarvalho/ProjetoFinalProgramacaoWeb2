@@ -17,7 +17,7 @@ import java.util.List;
 
 @org.springframework.web.bind.annotation.ControllerAdvice
 @RestControllerAdvice
-public class ControllerAdvice {//interceptador (controle de exceções)
+public class ControllerAdvice {
 
     @Autowired
     private MessageSource messageSource;

@@ -11,8 +11,4 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query(value = "SELECT p FROM Product p WHERE p.type.id = :typeProduct")
     List<Product> findProductByType(Integer typeProduct);
 
-
-
-//    @Query(value = "SELECT o FROM Order o JOIN o.product p WHERE p.id = :productId")
-//    List<Order> findAllByProduct(Integer productId);
 }

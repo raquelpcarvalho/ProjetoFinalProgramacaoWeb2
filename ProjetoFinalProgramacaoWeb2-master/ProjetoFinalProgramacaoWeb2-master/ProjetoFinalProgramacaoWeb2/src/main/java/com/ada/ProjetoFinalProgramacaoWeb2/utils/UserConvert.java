@@ -11,7 +11,7 @@ import java.util.List;
 
 public class UserConvert {
 
-    public static User toEntity(UserRequest userRequest){ //solicitado, e será setado no Banco de Dados
+    public static User toEntity(UserRequest userRequest){
         User user = new User();
         user.setName(userRequest.getName());
         user.setEmail(userRequest.getEmail());

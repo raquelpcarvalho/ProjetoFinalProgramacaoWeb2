@@ -45,7 +45,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<UserResponse> saveUser(
             @Valid @RequestBody UserRequest userDTO
-    ) throws PasswordValidationError { //@RequestBody informa que os dados virão do "body" da requisição
+    ) throws PasswordValidationError {
         UserResponse user =  userService.saveUser(userDTO);
         return ResponseEntity.created(URI.create("/user/" + user.getId())).body(user);
     }
@@ -65,19 +65,19 @@ public class UserController {
         return ResponseEntity.ok(userService.getAllByName(name));
     }
 
-    //Consulta por CPF
+
     @GetMapping("/cpf/{cpf}")
     public ResponseEntity<UserResponse> getUserByCpf(@PathVariable String cpf){
         return ResponseEntity.ok(userService.getUserByCpf(cpf));
     }
 
-    //para deletar um usuário
+
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Integer id){
         userService.deleteUser(id);
     }
 
-    //Put altera o registro completo
+
     @PutMapping("/{id}")
     public ResponseEntity<UserResponse> updateUser(
             @PathVariable Integer id,
@@ -85,14 +85,6 @@ public class UserController {
     ){
         return  ResponseEntity.ok(userService.updateUser(id, userRequest));
     }
-
-
-//    @GetMapping("/order/user/{userId}")
-//    public List<OrderResponse> getAllByUser(@PathVariable Integer userId){
-//        return orderService.getAllByUser(userId);
-//    }
-
-
 
 
 

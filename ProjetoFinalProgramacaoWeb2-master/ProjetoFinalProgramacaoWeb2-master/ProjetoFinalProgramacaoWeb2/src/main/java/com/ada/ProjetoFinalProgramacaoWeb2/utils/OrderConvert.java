@@ -14,7 +14,7 @@ public class OrderConvert {
 
     public static Order toEntity(OrderRequest orderRequest, User user, List<Product> products){
         Order order = new Order();
-        //cálculo do total do pedido
+
         BigDecimal total = BigDecimal.ZERO;
         for(Product product : products){
             total = total.add(product.getPrice());

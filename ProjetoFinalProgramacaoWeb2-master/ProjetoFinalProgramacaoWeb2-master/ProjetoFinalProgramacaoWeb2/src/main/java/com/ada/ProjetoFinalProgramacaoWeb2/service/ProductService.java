@@ -40,18 +40,5 @@ public class ProductService {
         return ProductConvert.toResponseList(productRepository.findProductByType(typeProduct));
     }
 
-//    public List<OrderResponse> getAllOrders(Integer userId, Integer productId){
-//        if (userId != null){
-//            return getAllByUser(userId);
-//        } else if (productId != null) {
-//            return getAllByProduct(productId);
-//        } else {
-//            return  OrderConvert.toResponseList(orderRepository.findAll());
-//        }
-//
-//    }
-
-
-
 
 }

@@ -11,8 +11,8 @@ import java.math.BigDecimal;
 @Getter @Setter
 public class Product {
 
-    @Id// informando para o JPA qual será o identificador único da tabela
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//gera o id; IDENTITY -> auto incremento
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "name", nullable = false)
@@ -21,7 +21,6 @@ public class Product {
     @Column(name = "price", nullable = false)
     private BigDecimal price;
 
-    //pode ter muitos produtos de 1 tipo
 
     @ManyToOne
     private TypeProduct type;
